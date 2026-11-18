@@ -3,508 +3,473 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>iGreen Energia & Mobilidade</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family: Arial, sans-serif;
-    color:#333;
-    line-height:1.6;
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
 }
 
-header{
-    background:#006837;
-    color:#fff;
-    padding:15px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
+header {
+    background: #006837;
+    color: #fff;
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
+.logo img {
+    height: 60px;
+    width: auto;
+    display: block;
 }
 
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:25px;
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
 }
 
-.btn-topo{
-    background:#00b050;
-    color:white;
-    padding:10px 20px;
-    border-radius:30px;
-    text-decoration:none;
+nav a:hover {
+    opacity: 0.8;
 }
 
-.hero{
-    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+/* --- ESTILOS DOS BOTÕES APRIMORADOS --- */
+.btn-topo, .btn, .botao-form, .caixa-link {
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 176, 80, 0.3);
+}
+
+.btn-topo {
+    background: #00b050;
+    color: white;
+    padding: 10px 24px;
+}
+
+.btn-topo:hover {
+    background: #009644;
+    transform: translateY(-2px);
+}
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
     url('https://images.unsplash.com/photo-1593941707882-a5bac6861d75');
-    background-size:cover;
-    background-position:center;
-    color:white;
-    text-align:center;
-    padding:120px 10%;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 120px 10%;
 }
 
-.hero h1{
-    font-size:52px;
-    margin-bottom:20px;
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
 }
 
-.hero p{
-    font-size:22px;
-    margin-bottom:30px;
+.hero p {
+    font-size: 22px;
+    margin-bottom: 35px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.btn{
-    display:inline-block;
-    margin:10px;
-    padding:15px 30px;
-    background:#00b050;
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:bold;
+.btn {
+    margin: 10px;
+    padding: 16px 34px;
+    background: linear-gradient(135deg, #00c853, #009624);
+    color: white;
+    font-size: 16px;
 }
 
-.btn-secundario{
-    background:#0056b3;
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 200, 83, 0.45);
 }
 
-section{
-    padding:80px 10%;
+.btn-secundario {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.35);
 }
 
-.titulo{
-    text-align:center;
-    margin-bottom:50px;
+.btn-secundario:hover {
+    box-shadow: 0 6px 18px rgba(0, 86, 179, 0.5);
 }
 
-.titulo h2{
-    color:#006837;
-    font-size:38px;
+.botao-form {
+    display: block;
+    background: linear-gradient(135deg, #00c853, #009624);
+    color: white;
+    padding: 16px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+.botao-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 200, 83, 0.4);
 }
 
-.card{
-    background:#f7f7f7;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
+.caixa-link {
+    background: #00b050;
+    color: white;
+    padding: 12px 30px;
+    margin-top: 15px;
 }
 
-.card h3{
-    color:#006837;
-    margin-bottom:15px;
+.caixa-link:hover {
+    background: #008f41;
+    transform: translateY(-2px);
 }
 
-.formulario{
-    background:#f4f7f8;
-    border-radius:20px;
-    padding:40px;
+/* --- SEÇÕES E CARDS --- */
+section {
+    padding: 80px 10%;
 }
 
-input,
-select,
-textarea{
-    width:100%;
-    padding:15px;
-    margin-bottom:15px;
-    border:1px solid #ddd;
-    border-radius:8px;
+.titulo {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.botao-form{
-    background:#00b050;
-    border:none;
-    color:white;
-    padding:15px;
-    width:100%;
-    font-size:18px;
-    border-radius:8px;
-    cursor:pointer;
+.titulo h2 {
+    color: #006837;
+    font-size: 38px;
+    margin-bottom: 10px;
 }
 
-.destaque{
-    background:#006837;
-    color:white;
-    text-align:center;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
 }
 
-.destaque h2{
-    color:white;
+.card {
+    background: #f7f7f7;
+    color: #333;
+    padding: 30px 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
 }
 
-.depoimentos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.depoimento{
-    background:white;
-    border-left:5px solid #00b050;
-    padding:25px;
-    box-shadow:0 2px 8px rgba(0,0,0,.1);
+.card h3 {
+    color: #006837;
+    margin-bottom: 15px;
 }
 
-footer{
-    background:#0f172a;
-    color:white;
-    text-align:center;
-    padding:40px;
+.formulario {
+    background: #f4f7f8;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    padding:15px 20px;
-    text-decoration:none;
-    border-radius:50px;
-    font-weight:bold;
-    box-shadow:0 4px 10px rgba(0,0,0,.3);
+input, select, textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
-@media(max-width:768px){
-
-header{
-    flex-direction:column;
-    gap:15px;
+.destaque {
+    background: #006837;
+    color: white;
+    text-align: center;
 }
 
-nav ul{
-    flex-wrap:wrap;
-    justify-content:center;
+.destaque h2 {
+    color: white;
 }
 
-.hero h1{
-    font-size:34px;
+.box-oportunidade {
+    max-width: 550px;
+    margin: 40px auto 0;
+    background: white;
+    color: #333;
+    border: 2px solid #00C853;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-.hero p{
-    font-size:18px;
+.depoimentos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
 }
 
+.depoimento {
+    background: white;
+    border-left: 5px solid #00b050;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+footer {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 40px;
 }
 
-body{
-    font-family: Arial, sans-serif;
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s ease;
+    z-index: 1000;
 }
 
-.logo img{
-    height:70px;
-    width:auto;
-    display:block;
+.whatsapp:hover {
+    transform: scale(1.05);
 }
 
+@media(max-width:768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero h1 {
+        font-size: 34px;
+    }
+    .hero p {
+        font-size: 18px;
+    }
+}
 </style>
+</head>
+
+<body>
 
 <header>
+    <div class="logo">
+        <img src="iGreen Branco.png" alt="Logo iGreen">
+    </div>
 
-<div class="logo">
-    <img src="iGreen Branco.png" alt="Logo iGreen">
-</div>
+    <nav>
+        <ul>
+            <li><a href="#energia">Economia</a></li>
+            <li><a href="#eletropostos">Eletropostos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
 
-<nav>
-<ul>
-<li><a href="#energia">Economia</a></li>
-<li><a href="#eletropostos">Eletropostos</a></li>
-<li><a href="#sobre">Sobre</a></li>
-<li><a href="#contato">Contato</a></li>
-</ul>
-</nav>
-
-<a href="#cadastro" class="btn-topo">
-Quero Economizar
-</a>
-
+    <a href="#cadastro" class="btn-topo">Quero Economizar</a>
 </header>
 
 <section class="hero">
-
-<h1>Economize até 10% na sua Conta de Luz</h1>
-
-<p>
-Conheça soluções de energia sustentável e
-oportunidades para empreender com eletropostos.
-</p>
-
-<a href="#cadastro" class="btn">
-Quero Receber Desconto
-</a>
-
-<a href="#eletropostos" class="btn btn-secundario">
-Quero Empreender
-</a>
-
+    <h1>Economize até 10% na sua Conta de Luz</h1>
+    <p>Conheça soluções de energia sustentável e oportunidades para empreender com eletropostos.</p>
+    <a href="#cadastro" class="btn">Quero Receber Desconto</a>
+    <a href="#eletropostos" class="btn btn-secundario">Quero Empreender</a>
 </section>
 
 <section id="energia">
+    <div class="titulo">
+        <h2>Economize na Conta de Energia</h2>
+        <p>Reduza seus custos de forma simples e sustentável.</p>
+    </div>
 
-<div class="titulo">
-<h2>Economize na Conta de Energia</h2>
-<p>
-Reduza seus custos de forma simples e sustentável.
-</p>
-</div>
-
-<div class="cards">
-
-<div class="card">
-<h3>1. Cadastro</h3>
-<p>Preencha seus dados rapidamente.</p>
-</div>
-
-<div class="card">
-<h3>2. Análise</h3>
-<p>Enviamos sua solicitação para avaliação.</p>
-</div>
-
-<div class="card">
-<h3>3. Economia</h3>
-<p>Comece a pagar menos na conta de energia.</p>
-</div>
-
-</div>
-
+    <div class="cards">
+        <div class="card">
+            <h3>1. Cadastro</h3>
+            <p>Preencha seus dados rapidamente.</p>
+        </div>
+        <div class="card">
+            <h3>2. Análise</h3>
+            <p>Enviamos sua solicitação para avaliação.</p>
+        </div>
+        <div class="card">
+            <h3>3. Economia</h3>
+            <p>Comece a pagar menos na conta de energia.</p>
+        </div>
+    </div>
 </section>
 
 <section id="cadastro">
+    <div class="titulo">
+        <h2>Solicite sua Análise Gratuita</h2>
+    </div>
 
-<div class="titulo">
-<h2>Solicite sua Análise Gratuita</h2>
-</div>
+    <div class="formulario">
+        <form>
+            <input type="text" placeholder="Nome Completo">
+            <input type="tel" placeholder="WhatsApp">
+            <input type="email" placeholder="E-mail">
+            <input type="text" placeholder="Cidade">
+            <input type="number" placeholder="Valor Médio da Conta (R$)">
 
-<div class="formulario">
+            <select>
+                <option>Tipo de Cliente</option>
+                <option>Residencial</option>
+                <option>Comercial</option>
+                <option>Industrial</option>
+            </select>
 
-<form>
-
-<input type="text" placeholder="Nome Completo">
-
-<input type="tel" placeholder="WhatsApp">
-
-<input type="email" placeholder="E-mail">
-
-<input type="text" placeholder="Cidade">
-
-<input type="number" placeholder="Valor Médio da Conta">
-
-<select>
-<option>Tipo de Cliente</option>
-<option>Residencial</option>
-<option>Comercial</option>
-<option>Industrial</option>
-</select>
-
-<a href="https://green.igreenenergy.com.br/?id=154470" target="_blank">
-    <button class="botao-form">
-        QUERO RECEBER MEU DESCONTO
-    </button>
-</a>
-
-</form>
-
-</div>
-
+            <!-- Link estilizado como botão (substituindo o <button> dentro de <a>) -->
+            <a href="https://green.igreenenergy.com.br/?id=154470" target="_blank" rel="noopener noreferrer" class="botao-form">
+                QUERO RECEBER MEU DESCONTO
+            </a>
+        </form>
+    </div>
 </section>
 
 <section id="eletropostos" class="destaque">
+    <div class="titulo">
+        <h2>Empreenda com Eletropostos</h2>
+    </div>
 
-<div class="titulo">
-<h2>Empreenda com Eletropostos</h2>
-</div>
-
-<p style="max-width:800px;margin:auto;">
-O mercado de mobilidade elétrica está crescendo.
-Conheça as oportunidades para investir e gerar
-novas fontes de receita.
-</p>
-
-<br><br>
-
-<div class="cards">
-
-<div class="card">
-<h3>Mercado em Crescimento</h3>
-<p>Mais veículos elétricos todos os anos.
-<p style="color:#00C853; font-weight:bold;
-
-</div>
-
-<div class="card">
-<h3>Baixo Investimento</h3>
-<p>Modelos acessíveis para iniciar.</p>
-<p style="color:#00C853; font-weight:bold;">
-
-<div class="card">
-    
-</div>
-
-<div class="card">
-<h3>Receita Recorrente</h3>
-<p>Ganhos através das recargas.</p>
-<p style="color:#00C853; font-weight:bold;
-
-<div style="
-    max-width:500px;
-    margin:30px auto;
-    background:white;
-    border:2px solid #00C853;
-    border-radius:15px;
-    padding:25px;
-    text-align:center;
-
-<h3 style="color:#00C853;">
-        Oportunidade de Negócio
-</h3>
-
-    <p>
-        Conheça as oportunidades para empreender no mercado de eletropostos.
+    <p style="max-width:800px; margin:auto;">
+        O mercado de mobilidade elétrica está crescendo. Conheça as oportunidades para investir e gerar novas fontes de receita.
     </p>
 
-    <a href="https://igreenmob.com.br/?ref=7b4ef709-280e-4a2d-bcb8-7af043dd4f64"
-       target="_blank"
-       class="caixa-link">
-       Saiba Mais
-    </a>
+    <br><br>
 
-</div>
+    <div class="cards">
+        <div class="card">
+            <h3>Mercado em Crescimento</h3>
+            <p>Mais veículos elétricos circulando todos os anos.</p>
+        </div>
 
-</div>
+        <div class="card">
+            <h3>Baixo Investimento</h3>
+            <p>Modelos acessíveis para iniciar seu negócio.</p>
+        </div>
 
+        <div class="card">
+            <h3>Receita Recorrente</h3>
+            <p>Ganhos contínuos através das recargas.</p>
+        </div>
+    </div>
+
+    <div class="box-oportunidade">
+        <h3 style="color:#006837; margin-bottom:10px;">Oportunidade de Negócio</h3>
+        <p>Conheça as oportunidades para empreender no mercado de eletropostos.</p>
+        <a href="https://igreenmob.com.br/?ref=7b4ef709-280e-4a2d-bcb8-7af043dd4f64" target="_blank" rel="noopener noreferrer" class="caixa-link">
+            Saiba Mais
+        </a>
+    </div>
 </section>
 
 <section id="sobre">
+    <div class="titulo">
+        <h2>Por que Escolher a iGreen?</h2>
+    </div>
 
-<div class="titulo">
-<h2>Por que Escolher a iGreen?</h2>
-</div>
-
-<div class="cards">
-
-<div class="card">
-<h3>Economia</h3>
-<p>Redução de custos energéticos.</p>
-</div>
-
-<div class="card">
-<h3>Sustentabilidade</h3>
-<p>Energia limpa e eficiente.</p>
-</div>
-
-<div class="card">
-<h3>Inovação</h3>
-<p>Soluções tecnológicas modernas.</p>
-</div>
-
-<div class="card">
-<h3>Suporte</h3>
-<p>Atendimento especializado.</p>
-</div>
-
-</div>
-
+    <div class="cards">
+        <div class="card">
+            <h3>Economia</h3>
+            <p>Redução de custos energéticos.</p>
+        </div>
+        <div class="card">
+            <h3>Sustentabilidade</h3>
+            <p>Energia limpa e eficiente.</p>
+        </div>
+        <div class="card">
+            <h3>Inovação</h3>
+            <p>Soluções tecnológicas modernas.</p>
+        </div>
+        <div class="card">
+            <h3>Suporte</h3>
+            <p>Atendimento especializado.</p>
+        </div>
+    </div>
 </section>
 
 <section>
+    <div class="titulo">
+        <h2>Depoimentos</h2>
+    </div>
 
-<div class="titulo">
-<h2>Depoimentos</h2>
-</div>
-
-<div class="depoimentos">
-
-<div class="depoimento">
-⭐⭐⭐⭐⭐<br><br>
-Consegui reduzir minha conta de energia e o processo foi muito simples.
-</div>
-
-<div class="depoimento">
-⭐⭐⭐⭐⭐<br><br>
-Excelente oportunidade para conhecer o setor de mobilidade elétrica.
-</div>
-
-<div class="depoimento">
-⭐⭐⭐⭐⭐<br><br>
-Atendimento rápido e transparente.
-</div>
-
-</div>
-
+    <div class="depoimentos">
+        <div class="depoimento">
+            ⭐⭐⭐⭐⭐<br><br>
+            Consegui reduzir minha conta de energia e o processo foi muito simples.
+        </div>
+        <div class="depoimento">
+            ⭐⭐⭐⭐⭐<br><br>
+            Excelente oportunidade para conhecer o setor de mobilidade elétrica.
+        </div>
+        <div class="depoimento">
+            ⭐⭐⭐⭐⭐<br><br>
+            Atendimento rápido e transparente.
+        </div>
+    </div>
 </section>
 
 <section id="contato" class="destaque">
-
-<h2>Fale Conosco</h2>
-
-<br>
-
-<p>WhatsApp: (21) 98143-5023</p>
-<p>E-mail: lilian.igreenmob@gmail.com</p>
-<p>Para todo Brasil</p>
-<p>Licenciado ID:154470
-
-<br>
-
-<a href="https://wa.me/5521981435023" class="btn">
-Falar no WhatsApp
-</a>
-
+    <h2>Fale Conosco</h2>
+    <br>
+    <p>WhatsApp: (21) 98143-5023</p>
+    <p>E-mail: lilian.igreenmob@gmail.com</p>
+    <p>Atendimento para todo o Brasil</p>
+    <p>Licenciado ID: 154470</p>
+    <br>
+    <a href="https://wa.me/5521981435023" target="_blank" rel="noopener noreferrer" class="btn">
+        Falar no WhatsApp
+    </a>
 </section>
 
 <footer>
-
-<h3>iGreen Energia & Mobilidade</h3>
-
-<p>
-© 2026 Todos os direitos reservados.
-</p>
-
+    <h3>iGreen Energia & Mobilidade</h3>
+    <p>© 2026 Todos os direitos reservados.</p>
 </footer>
 
-<a
-href="https://wa.me/5521981435023"
-class="whatsapp"
-target="_blank">
-WhatsApp
+<a href="https://wa.me/5521981435023" class="whatsapp" target="_blank" rel="noopener noreferrer">
+    WhatsApp
 </a>
 
 </body>
