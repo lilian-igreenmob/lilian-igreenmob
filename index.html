@@ -55,12 +55,13 @@ nav a:hover {
     opacity: 0.8;
 }
 
-/* --- ESTILOS DOS BOTÕES APRIMORADOS --- */
+/* --- ESTILOS DOS BOTÕES --- */
 .btn-topo, .btn, .botao-form, .caixa-link {
     display: inline-block;
     font-weight: bold;
     text-decoration: none;
     text-align: center;
+    border: none;
     border-radius: 50px;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -210,6 +211,11 @@ input, select, textarea {
     font-size: 16px;
 }
 
+input:focus, select:focus {
+    outline: none;
+    border-color: #00b050;
+}
+
 .destaque {
     background: #006837;
     color: white;
@@ -345,24 +351,23 @@ footer {
     </div>
 
     <div class="formulario">
-        <form>
-            <input type="text" placeholder="Nome Completo">
-            <input type="tel" placeholder="WhatsApp">
-            <input type="email" placeholder="E-mail">
-            <input type="text" placeholder="Cidade">
-            <input type="number" placeholder="Valor Médio da Conta (R$)">
+        <form id="form-whatsapp" onsubmit="enviarWhatsApp(event)">
+            <input type="text" id="nome" placeholder="Nome Completo" required>
+            <input type="tel" id="whatsapp" placeholder="WhatsApp com DDD" required>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="text" id="cidade" placeholder="Cidade / Estado" required>
+            <input type="number" id="valor" placeholder="Valor Médio da Conta (R$)" required>
 
-            <select>
-                <option>Tipo de Cliente</option>
-                <option>Residencial</option>
-                <option>Comercial</option>
-                <option>Industrial</option>
+            <select id="tipo" required>
+                <option value="">Selecione o Tipo de Cliente</option>
+                <option value="Residencial">Residencial</option>
+                <option value="Comercial">Comercial</option>
+                <option value="Industrial">Industrial</option>
             </select>
 
-            <!-- Link estilizado como botão (substituindo o <button> dentro de <a>) -->
-            <a href="https://green.igreenenergy.com.br/?id=154470" target="_blank" rel="noopener noreferrer" class="botao-form">
+            <button type="submit" class="botao-form">
                 QUERO RECEBER MEU DESCONTO
-            </a>
+            </button>
         </form>
     </div>
 </section>
@@ -471,6 +476,37 @@ footer {
 <a href="https://wa.me/5521981435023" class="whatsapp" target="_blank" rel="noopener noreferrer">
     WhatsApp
 </a>
+
+<script>
+function enviarWhatsApp(event) {
+    event.preventDefault();
+    
+    const nome = document.getElementById('nome').value;
+    const tel = document.getElementById('whatsapp').value;
+    const email = document.getElementById('email').value;
+    const cidade = document.getElementById('cidade').value;
+    const valor = document.getElementById('valor').value;
+    const tipo = document.getElementById('tipo').value;
+    
+    const seuNumero = "5521981435023"; 
+    
+    const texto = `Olá! Gostaria de solicitar minha análise gratuita de economia de energia.%0a%0a` +
+                  `*Nome:* ${nome}%0a` +
+                  `*WhatsApp:* ${tel}%0a` +
+                  `*E-mail:* ${email}%0a` +
+                  `*Cidade:* ${cidade}%0a` +
+                  `*Valor Médio da Conta:* R$ ${valor}%0a` +
+                  `*Tipo de Cliente:* ${tipo}`;
+    
+    // Abre o WhatsApp em uma nova aba com a mensagem pronta
+    window.open(`https://wa.me/${seuNumero}?text=${texto}`, '_blank');
+    
+    // Redireciona a página atual para o seu link oficial da iGreen
+    setTimeout(() => {
+        window.location.href = "https://green.igreenenergy.com.br/?id=154470";
+    }, 1000);
+}
+</script>
 
 </body>
 </html>
